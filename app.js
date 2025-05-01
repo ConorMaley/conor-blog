@@ -12,7 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('home', { posts: [] }); // Pass blog posts here
+    res.render('layout', {
+        title: 'Home - My Blog',
+        body: 'home', // Pass the name of the EJS file
+        posts: [] // Pass the posts data
+    });
 });
 
 app.listen(PORT, () => {
