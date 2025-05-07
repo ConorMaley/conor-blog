@@ -21,9 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    const mdBlogPostFileNames = fs.readdirSync(`${__dirname}/views/blog`).filter(file => file.endsWith('.md'));
+    const mdBlogPostFileNames = fs.readdirSync(`${__dirname}/blog`).filter(file => file.endsWith('.md'));
     const mdBlogPosts = mdBlogPostFileNames.map(fileName => {
-        const filePath = `${__dirname}/views/blog/${fileName}`;
+        const filePath = `${__dirname}/blog/${fileName}`;
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         const htmlContent = marked.parse(content.substring(0, 100) + '...');
@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 app.get('/blog/:postAlias', (req, res) => {
     const { postAlias } = req.params;
-    const filePath = `${__dirname}/views/blog/${postAlias}.md`;
+    const filePath = `${__dirname}/blog/${postAlias}.md`;
     if (fs.existsSync(filePath)) {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
