@@ -14,7 +14,11 @@
     </nav>
     <main>
         <h1><%= title %></h1>
-        <%- content %>
+        <em>Created: <%= createdDate %></em>
+        <em>Last edited: <%= updatedDate %></em>
+        <article>
+            <%- content %>
+        </article>
     </main>
 </body>
 </html>

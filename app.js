@@ -30,7 +30,8 @@ app.get('/', (req, res) => {
         
         return {
             title: data.title,
-            date: data.date,
+            updatedDate: data.updatedDate,
+            createdDate: data.createdDate,
             content: htmlContent,
             fileAlias: fileName.replace('.md', ''),
         };
@@ -51,7 +52,8 @@ app.get('/blog/:postAlias', (req, res) => {
         const htmlContent = marked.parse(content);
         return res.render('post', {
             title: data.title,
-            date: data.date,
+            updatedDate: data.updatedDate,
+            createdDate: data.createdDate,
             content: htmlContent,
             postAlias
         });

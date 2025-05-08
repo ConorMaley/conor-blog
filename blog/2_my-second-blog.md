@@ -1,6 +1,8 @@
 ---
 title: Home runs
 date: 2025/05/06
+createdDate: '2025-05-07T02:40:13.000Z'
+updatedDate: '2025-05-07T02:40:13.000Z'
 ---
 
 Jeff Bezos said that business is like baseball without a constraint on the number of runs earned by a home run. In baseball the max is 4, in business the max can be over 1000. 
