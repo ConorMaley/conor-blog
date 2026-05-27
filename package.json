@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "spell": "cspell --config cspell.config.yaml",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node updateBlogDates.js && node app.js"
+    "build": "npm run spell && node updateBlogDates.js && node app.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "resend": "^6.12.4"
   },
   "devDependencies": {
+    "cspell": "^9.8.0",
     "nodemon": "^3.1.10"
   },
   "directories": {

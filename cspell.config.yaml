@@ -1,0 +1,26 @@
+version: "0.2"
+
+language: en
+
+# Files to check
+files:
+  - "blog/**/*.md"
+  - "views/**/*.ejs"
+
+# Ignore patterns within files (YAML front matter dates, URLs, code blocks, etc.)
+ignoreRegExpList:
+  - "/^---[\\s\\S]*?---/m"   # YAML front matter block
+  - "https?://[^\\s]+"       # URLs
+
+# Custom words to allow (proper nouns, tech terms, etc.)
+words:
+  - Bezos
+  - nodemon
+  - cspell
+  - SDLC
+  - CICD
+
+# Suggested dictionaries
+dictionaries:
+  - en_US
+  - en-gb
