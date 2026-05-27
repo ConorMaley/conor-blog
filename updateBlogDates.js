@@ -43,9 +43,12 @@ function updateBlogPostDates() {
         const createdDate = getGitCreatedDate(filePath);
         const updatedDate = getGitCommitDate(filePath);
 
+        const existingCreated = data.createdDate instanceof Date ? data.createdDate.toISOString() : data.createdDate;
+        const existingUpdated = data.updatedDate instanceof Date ? data.updatedDate.toISOString() : data.updatedDate;
+
         const changed =
-            (createdDate && createdDate !== data.createdDate) ||
-            (updatedDate && updatedDate !== data.updatedDate);
+            (createdDate && createdDate !== existingCreated) ||
+            (updatedDate && updatedDate !== existingUpdated);
 
         if (!changed) return;
 
