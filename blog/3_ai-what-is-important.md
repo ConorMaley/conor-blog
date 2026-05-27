@@ -1,0 +1,16 @@
+---
+title: Fundementals are most important now for engineers in the dawn of AI.
+date: 2026/05/26
+createdDate: '2025-05-07T02:40:13.000Z'
+updatedDate: '2025-05-07T02:40:13.000Z'
+---
+
+Hello again blog, long time no see.
+---
+In today's age of AI, the best engineers will have these two skills.
+
+## Fundementals
+Engineers should know the [Laws of software engineering](https://lawsofsoftwareengineering.com/) like their own morals. It should come natural to them when building things. Writing code is going away, these laws will still apply.
+
+## Product engineering
+Engineers are going to be asked to think more like product people. Since development is faster, making product decisions on the fly will not result in long rebuilds of features. Iterations are only getting quicker. Small product decisions are going to shift **(left?)** to the engineers of the team. Product owners will still play a crucial role in the direction of the applications, but some of their responsibilities will shift to the engineers themselves.

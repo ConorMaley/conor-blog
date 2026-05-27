@@ -13,6 +13,7 @@ const blogDir = path.join(__dirname, 'blog');
 function getGitCommitDate(filePath) {
     try {
         const commitDate = execSync(`git log -1 --format=%ci -- ${filePath}`, { encoding: 'utf-8' }).trim();
+        if (!commitDate) return null;
         return new Date(commitDate).toISOString();
     } catch (error) {
         console.error(`Error fetching commit date for ${filePath}:`, error);
@@ -23,6 +24,7 @@ function getGitCommitDate(filePath) {
 function getGitCreatedDate(filePath) {
     try {
         const createdDate = execSync(`git log --diff-filter=A --format=%ci -- ${filePath}`, { encoding: 'utf-8' }).trim();
+        if (!createdDate) return null;
         return new Date(createdDate).toISOString();
     } catch (error) {
         console.error(`Error fetching created date for ${filePath}:`, error);
