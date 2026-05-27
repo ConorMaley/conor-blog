@@ -15,5 +15,6 @@
   "includeFiles": [
     "views/**/*",
     "blog/**/*"
-  ]
+  ],
+  "public": true
 }

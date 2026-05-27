@@ -6,13 +6,14 @@ import matter from 'gray-matter';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
+import { Resend } from 'resend';
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const { PORT } = process.env;
+const { PORT, RESEND_API_KEY } = process.env;
 
 const app = express();
 
@@ -41,6 +42,31 @@ app.get('/', (req, res) => {
         title: 'Home - Conor\'s Blog',
         posts: mdBlogPosts // Pass the posts data
     });
+});
+
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About - Conor\'s Blog' });
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact', { title: 'Contact - Conor\'s Blog', success: false });
+});
+
+app.post('/contact', async (req, res) => {
+    const { name, email, message, website } = req.body;
+    if (website) {
+        // Honeypot triggered — silently succeed so bots don't know they were blocked
+        return res.render('contact', { title: 'Contact - Conor\'s Blog', success: true });
+    }
+    const resend = new Resend(RESEND_API_KEY);
+    await resend.emails.send({
+        from: 'Contact Form <onboarding@resend.dev>',
+        to: 'maleyconor@gmail.com',
+        replyTo: email,
+        subject: `New message from ${name}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    });
+    res.render('contact', { title: 'Contact - Conor\'s Blog', success: true });
 });
 
 app.get('/blog/:postAlias', (req, res) => {
