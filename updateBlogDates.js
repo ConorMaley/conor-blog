@@ -43,12 +43,14 @@ function updateBlogPostDates() {
         const createdDate = getGitCreatedDate(filePath);
         const updatedDate = getGitCommitDate(filePath);
 
-        if (createdDate) {
-            data.createdDate = createdDate;
-        }
-        if (updatedDate) {
-            data.updatedDate = updatedDate;
-        }
+        const changed =
+            (createdDate && createdDate !== data.createdDate) ||
+            (updatedDate && updatedDate !== data.updatedDate);
+
+        if (!changed) return;
+
+        if (createdDate) data.createdDate = createdDate;
+        if (updatedDate) data.updatedDate = updatedDate;
 
         const updatedContent = matter.stringify(content, data);
         fs.writeFileSync(filePath, updatedContent, 'utf-8');

@@ -1,11 +1,11 @@
 ---
 title: Fundementals are most important now for engineers in the dawn of AI.
 date: 2026/05/26
-createdDate: '2025-05-07T02:40:13.000Z'
-updatedDate: '2025-05-07T02:40:13.000Z'
+createdDate: '2026-05-27T03:41:31.000Z'
+updatedDate: '2026-05-27T03:41:31.000Z'
 ---
 
-Hello again blog, long time no see.
+## Just some thoughts...
 ---
 In today's age of AI, the best engineers will have these two skills.
 
