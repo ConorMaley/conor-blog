@@ -1,0 +1,41 @@
+# Search engines — not actively blocked, just not helping yet
+User-agent: *
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (feeds many AI training datasets)
+User-agent: CCBot
+Disallow: /
+
+# Meta
+User-agent: FacebookBot
+Disallow: /
+
+# Apple
+User-agent: Applebot-Extended
+Disallow: /
+
+# Cohere
+User-agent: cohere-ai
+Disallow: /
+
+# Bytedance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
