@@ -13,9 +13,21 @@
         </ul>
     </nav>
     <main>
+        <% if (activeTag) { %>
+            <p class="tag-filter-notice">Filtering by <span class="tag tag--active"><%= activeTag %></span> — <a href="/">clear</a></p>
+        <% } %>
         <% posts.forEach(post => { %>
             <article>
                 <h2><a href="/blog/<%= post.fileAlias %>"><%= post.title %></a></h2>
+                <em>Created: <%= new Date(post.createdDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></em>
+                <em>Last edited: <%= new Date(post.updatedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></em>
+                <% if (post.tags.length) { %>
+                    <div class="tags">
+                        <% post.tags.forEach(tag => { %>
+                            <a href="/?tag=<%= tag %>" class="tag<%= tag === activeTag ? ' tag--active' : '' %>"><%= tag %></a>
+                        <% }) %>
+                    </div>
+                <% } %>
                 <p><%- post.content %></p>
             </article>
         <% }) %>

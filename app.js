@@ -22,25 +22,34 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
+    const activeTag = req.query.tag || null;
     const mdBlogPostFileNames = fs.readdirSync(`${__dirname}/blog`).filter(file => file.endsWith('.md'));
-    const mdBlogPosts = mdBlogPostFileNames.map(fileName => {
+    let mdBlogPosts = mdBlogPostFileNames.map(fileName => {
         const filePath = `${__dirname}/blog/${fileName}`;
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         const htmlContent = marked.parse(content.substring(0, 100) + '...');
-        
+
         return {
             title: data.title,
             updatedDate: data.updatedDate,
             createdDate: data.createdDate,
+            tags: data.tags || [],
             content: htmlContent,
             fileAlias: fileName.replace('.md', ''),
         };
     });
 
+    mdBlogPosts.sort((a, b) => new Date(b.updatedDate) - new Date(a.updatedDate));
+
+    if (activeTag) {
+        mdBlogPosts = mdBlogPosts.filter(post => post.tags.includes(activeTag));
+    }
+
     res.render('home', {
         title: 'Home - Conor\'s Blog',
-        posts: mdBlogPosts // Pass the posts data
+        posts: mdBlogPosts,
+        activeTag,
     });
 });
 
@@ -80,6 +89,7 @@ app.get('/blog/:postAlias', (req, res) => {
             title: data.title,
             updatedDate: data.updatedDate,
             createdDate: data.createdDate,
+            tags: data.tags || [],
             content: htmlContent,
             postAlias
         });

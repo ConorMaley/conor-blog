@@ -73,3 +73,66 @@ nav ul li a {
     margin-top: 1.5rem;
     color: #2a6b2a;
 }
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.tag:hover {
+    background-color: #e8e8e8;
+    color: #333;
+}
+
+.tag--active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.tag--active:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+.tag-filter-notice {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+article table {
+    border-collapse: collapse;
+    width: auto;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+article th,
+article td {
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+article th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+article tr:nth-child(even) {
+    background-color: #fafafa;
+}

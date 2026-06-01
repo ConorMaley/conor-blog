@@ -14,8 +14,15 @@
     </nav>
     <main>
         <h1><%= title %></h1>
-        <em>Created: <%= createdDate %></em>
-        <em>Last edited: <%= updatedDate %></em>
+        <em>Created: <%= new Date(createdDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></em>
+        <em>Last edited: <%= new Date(updatedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></em>
+        <% if (tags.length) { %>
+            <div class="tags">
+                <% tags.forEach(tag => { %>
+                    <a href="/?tag=<%= tag %>" class="tag"><%= tag %></a>
+                <% }) %>
+            </div>
+        <% } %>
         <article>
             <%- content %>
         </article>
