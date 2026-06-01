@@ -1,9 +1,11 @@
 ---
-title: Victory Laps in Baseball, part 1
+title: 'Victory Laps in Baseball, part 1'
 date: 2025/05/06
-createdDate: '2025-05-07T02:40:13.000Z'
-updatedDate: '2026-05-27T03:43:44.000Z'
-tags: [fun, sports]
+createdDate: '2026-06-01T01:13:27.000Z'
+updatedDate: '2026-06-01T01:19:00.133Z'
+tags:
+  - fun
+  - sports
 ---
 
 Jeff Bezos said that business is like baseball without a constraint on the number of runs earned by a home run. In baseball the max is 4, in business the max can be over 1000. 
@@ -78,6 +80,5 @@ When does small ball because so insignificant that we just remove the bases?
 
 ### What HR pct does one need to get to in order to have to walk them every time?
 
-I'm talking Bowser, Petey Pirahana batting numbers here, ifkyk.
-
+I'm talking Bowser, Petey piranha batting numbers here, ifkyk.
 

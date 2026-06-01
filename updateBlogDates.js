@@ -21,6 +21,15 @@ function getGitCommitDate(filePath) {
     }
 }
 
+function hasUncommittedChanges(filePath) {
+    try {
+        const status = execSync(`git status --porcelain -- ${filePath}`, { encoding: 'utf-8' }).trim();
+        return status.length > 0;
+    } catch (error) {
+        return false;
+    }
+}
+
 function getGitCreatedDate(filePath) {
     try {
         const createdDate = execSync(`git log --diff-filter=A --format=%ci -- ${filePath}`, { encoding: 'utf-8' }).trim();
@@ -41,7 +50,9 @@ function updateBlogPostDates() {
         const { data, content } = matter(fileContent);
 
         const createdDate = getGitCreatedDate(filePath);
-        const updatedDate = getGitCommitDate(filePath);
+        const updatedDate = hasUncommittedChanges(filePath)
+            ? new Date().toISOString()
+            : getGitCommitDate(filePath);
 
         const existingCreated = data.createdDate instanceof Date ? data.createdDate.toISOString() : data.createdDate;
         const existingUpdated = data.updatedDate instanceof Date ? data.updatedDate.toISOString() : data.updatedDate;
