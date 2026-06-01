@@ -6,6 +6,7 @@ updatedDate: '2026-06-01T02:36:24.976Z'
 tags:
   - engineering
   - serious
+githubIssue: 2
 ---
 
 ## Just some thoughts...

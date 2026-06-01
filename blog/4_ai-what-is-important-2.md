@@ -6,7 +6,7 @@ tags:
   - serious
 updatedDate: '2026-06-01T02:36:25.040Z'
 createdDate: '2026-06-01T02:36:25.009Z'
-githubIssue: 2
+githubIssue: 3
 ---
 
 ### More thoughts about what the future holds for software engineers.
