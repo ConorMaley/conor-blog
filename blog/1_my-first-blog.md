@@ -2,7 +2,7 @@
 title: First post
 date: 2025/05/06
 createdDate: '2025-05-07T02:40:13.000Z'
-updatedDate: '2026-06-01T01:13:27.000Z'
+updatedDate: '2026-06-01T02:36:24.830Z'
 tags:
   - diary-style
   - WIP

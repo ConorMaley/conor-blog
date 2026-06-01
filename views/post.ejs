@@ -26,6 +26,26 @@
         <article>
             <%- content %>
         </article>
+        <% if (issueUrl) { %>
+            <section class="comments">
+                <h2>Comments</h2>
+                <% if (comments.length) { %>
+                    <% comments.forEach(comment => { %>
+                        <div class="comment">
+                            <div class="comment-meta">
+                                <img class="comment-avatar" src="<%= comment.user.avatar_url %>" alt="<%= comment.user.login %>">
+                                <a href="<%= comment.user.html_url %>" class="comment-author"><%= comment.user.login %></a>
+                                <span class="comment-date"><%= new Date(comment.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                            </div>
+                            <div class="comment-body"><%- comment.body %></div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="no-comments">No comments yet.</p>
+                <% } %>
+                <a href="<%= issueUrl %>" class="comment-cta" target="_blank" rel="noopener noreferrer">Leave a comment on GitHub</a>
+            </section>
+        <% } %>
     </main>
 </body>
 </html>

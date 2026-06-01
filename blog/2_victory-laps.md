@@ -2,7 +2,8 @@
 title: 'Victory Laps in Baseball, part 1'
 date: 2025/05/06
 createdDate: '2026-06-01T01:13:27.000Z'
-updatedDate: '2026-06-01T01:19:00.133Z'
+updatedDate: '2026-06-01T02:36:24.906Z'
+githubIssue: 1
 tags:
   - fun
   - sports
@@ -80,5 +81,5 @@ When does small ball because so insignificant that we just remove the bases?
 
 ### What HR pct does one need to get to in order to have to walk them every time?
 
-I'm talking Bowser, Petey piranha batting numbers here, ifkyk.
+I'm talking Bowser, Petey Piranha batting numbers here, ifkyk.
 

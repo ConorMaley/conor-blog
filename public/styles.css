@@ -114,6 +114,76 @@ nav ul li a {
     color: #555;
 }
 
+.comments {
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1.5rem;
+}
+
+.comments h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.comment {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.comment-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+}
+
+.comment-author:hover {
+    text-decoration: underline;
+}
+
+.comment-date {
+    color: #888;
+}
+
+.comment-body p {
+    margin: 0;
+}
+
+.no-comments {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.comment-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.comment-cta:hover {
+    background-color: #555;
+}
+
 article table {
     border-collapse: collapse;
     width: auto;

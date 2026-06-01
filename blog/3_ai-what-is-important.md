@@ -2,7 +2,7 @@
 title: Fundamentals are most important now for engineers in the dawn of AI.
 date: 2026/05/26
 createdDate: '2026-05-27T03:41:31.000Z'
-updatedDate: '2026-06-01T01:13:27.000Z'
+updatedDate: '2026-06-01T02:36:24.976Z'
 tags:
   - engineering
   - serious

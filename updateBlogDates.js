@@ -49,7 +49,7 @@ function updateBlogPostDates() {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
 
-        const createdDate = getGitCreatedDate(filePath);
+        const createdDate = getGitCreatedDate(filePath) || (!data.createdDate ? new Date().toISOString() : null);
         const updatedDate = hasUncommittedChanges(filePath)
             ? new Date().toISOString()
             : getGitCommitDate(filePath);

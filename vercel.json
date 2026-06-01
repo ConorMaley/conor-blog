@@ -19,5 +19,8 @@
       "dest": "app.js"
     }
   ],
-  "public": true
+  "public": true,
+  "env": {
+    "TZ": "America/New_York"
+  }
 }

@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
         };
     });
 
+    mdBlogPosts = mdBlogPosts.filter(post => !post.tags.includes('WIP'));
     mdBlogPosts.sort((a, b) => new Date(b.updatedDate) - new Date(a.updatedDate));
 
     if (activeTag) {
@@ -78,19 +79,41 @@ app.post('/contact', async (req, res) => {
     res.render('contact', { title: 'Contact - Conor\'s Blog', success: true });
 });
 
-app.get('/blog/:postAlias', (req, res) => {
+const GITHUB_REPO = 'ConorMaley/conor-blog';
+
+async function fetchIssueComments(issueNumber) {
+    const headers = { 'User-Agent': 'conor-blog', Accept: 'application/vnd.github+json' };
+    if (process.env.GITHUB_TOKEN) headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/issues/${issueNumber}/comments`, { headers });
+    if (!res.ok) return [];
+    return res.json();
+}
+
+app.get('/blog/:postAlias', async (req, res) => {
     const { postAlias } = req.params;
     const filePath = `${__dirname}/blog/${postAlias}.md`;
     if (fs.existsSync(filePath)) {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         const htmlContent = marked.parse(content);
+
+        if ((data.tags || []).includes('WIP')) return res.status(404).render('404', { title: 'Page Not Found' });
+
+        const issueNumber = data.githubIssue || null;
+        const rawComments = issueNumber ? await fetchIssueComments(issueNumber) : [];
+        const comments = rawComments.map(c => ({ ...c, body: marked.parse(c.body) }));
+        const issueUrl = issueNumber
+            ? `https://github.com/${GITHUB_REPO}/issues/${issueNumber}`
+            : null;
+
         return res.render('post', {
             title: data.title,
             updatedDate: data.updatedDate,
             createdDate: data.createdDate,
             tags: data.tags || [],
             content: htmlContent,
+            comments,
+            issueUrl,
             postAlias
         });
     }
